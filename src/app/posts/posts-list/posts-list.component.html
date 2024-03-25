@@ -1,1 +1,8 @@
-<p>posts-list works!</p>
+<div class="grid place-items-center">
+  @for (post of postsList; track $index) {
+  <article class="bg-white p-4 mb-4 w-full md:w-1/2">
+    <h2 class="text-xl capitalize font-medium">{{ post.title }}</h2>
+    <p class="line-clamp-1">{{ post.body }}</p>
+  </article>
+  }
+</div>
