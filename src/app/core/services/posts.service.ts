@@ -12,4 +12,8 @@ export class PostsService {
   onFetchPosts<Post>(): Observable<Post[]> {
     return this.http.get<Post[]>(environment.API_POSTS);
   }
+
+  onFetchPostDetails<Post>(postId: string): Observable<Post> {
+    return this.http.get<Post>(environment.API_POSTS + `/${postId}`);
+  }
 }
