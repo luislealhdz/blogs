@@ -1,1 +1,8 @@
-<p>comments-list works!</p>
+@if(comments$ | async; as comments) {
+@for (comment of comments; track $index) {
+<article class="bg-white p-4 mb-4 w-full md:w-3/4 rounded-lg">
+  <p>{{ comment.email }}</p>
+  <p>{{ comment.body }}</p>
+</article>
+}
+}

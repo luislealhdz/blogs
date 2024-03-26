@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map, mergeMap } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import User from '../../models/user.interface';
-import Post from '../../models/post';
+import Post from '../../models/post.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class PostsService {
   }
 
   onFetchPostDetails(
-    postId: string
+    postId: number
   ): Observable<{ post: Post; user: Partial<User> }> {
     return this.http.get<Post>(environment.API_POSTS + `/${postId}`).pipe(
       mergeMap((post: Post) => {

@@ -5,3 +5,6 @@
   <p>{{ data.post.body | capitalizeFirstLetter }}</p>
   }
 </section>
+
+<p class="text-xl	font-medium mb-4">Comments</p>
+<app-comments-list [postId]="postId" />
