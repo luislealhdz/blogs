@@ -3,7 +3,7 @@
     <section class="bg-white p-4 mb-4 rounded-lg">
       @if (post$ | async; as data) {
       <h1 class="text-5xl capitalize font-medium mb-6">{{ data.post.title }}</h1>
-      <p class="mb-4">Author: <a href="">{{ data.user.username }}</a></p>
+      <p class="mb-4"> <span class="font-semibold">Author</span>: <a href="">{{ data.user.username }}</a></p>
       <p>{{ data.post.body | capitalizeFirstLetter }}</p>
       }
     </section>
