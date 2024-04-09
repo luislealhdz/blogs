@@ -1,0 +1,7 @@
+<h2 class="text-xl	font-medium mb-4">Other Posts</h2>
+
+@if(posts$ | async; as posts) {
+@for (post of posts; track $index) {
+<app-post [post]="post"></app-post>
+}
+}

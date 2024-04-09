@@ -36,4 +36,30 @@ export class PostsService {
       })
     );
   }
+
+  getRandomPosts(excludeIdPost: number): Observable<Post[]> {
+    const totalPosts: number = 10;
+
+    return this.http.get<Post[]>(environment.API_POSTS).pipe(
+      map(posts => posts.filter(post => post.id !== excludeIdPost)),
+      map(posts => this.shufflePosts(posts).slice(0, totalPosts))
+    );
+  }
+
+  private shufflePosts(postsList: Post[]): Post[] {
+    let currentIndex: number = postsList.length;
+    let randomIndex: number = 0;
+
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      [postsList[currentIndex], postsList[randomIndex]] = [
+        postsList[randomIndex],
+        postsList[currentIndex]
+      ];
+    }
+
+    return postsList;
+  }
 }

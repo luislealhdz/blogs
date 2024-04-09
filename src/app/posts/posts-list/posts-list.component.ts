@@ -1,11 +1,12 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { PostsService } from '../../core/services/posts/posts.service';
 import Post from '../../core/models/post.interface';
+import { PostComponent } from '../post/post.component';
 
 @Component({
   selector: 'app-posts-list',
   standalone: true,
-  imports: [],
+  imports: [PostComponent],
   templateUrl: './posts-list.component.html',
   styleUrl: './posts-list.component.scss'
 })
